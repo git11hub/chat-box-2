@@ -29,7 +29,7 @@ function Sidebar() {
         if (chatName) {
             db.collection('chats').add({
                 chatName: chatName,
-        })
+            })
         }
 
     }

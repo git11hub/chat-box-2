@@ -1,10 +1,22 @@
 import { Avatar } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setChat } from './chatSlice';
 import "./SidebarChat.css";
 
-function SidebarChat({id, chatName}) {
+function SidebarChat({ id, chatName }) {
+    const dispatch = useDispatch();
+    const [chatInfo, setChatInfo] = useState([]);
+
     return (
-        <div className="sidebarChat">
+        <div onClick={() =>
+            dispatch(
+                setChat({
+                    chatId: id,
+                    chatName: chatName
+                })
+            )
+        } className="sidebarChat">
             <Avatar />
             <div className="sidebarChat_info">
                 <h3>{chatName}</h3>
